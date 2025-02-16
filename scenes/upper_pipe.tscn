@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://tkubc0gkpgs7"]
+
+[ext_resource type="Texture2D" uid="uid://den4sx3n8oo4t" path="res://assets/pipe.png" id="1_a32d1"]
+[ext_resource type="Script" path="res://scripts/upper_pipe.gd" id="1_tl5gu"]
+
+[node name="UpperPipe" type="Area2D"]
+script = ExtResource("1_tl5gu")
+
+[node name="UpperCollision" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-39, -70, 39, -70, 39, -106, 36, -106, 36, -630, -36, -630, -36, -106, -39, -106)
+
+[node name="Upper" type="Sprite2D" parent="."]
+position = Vector2(0, -350)
+rotation = 3.14159
+texture = ExtResource("1_a32d1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://rpben7jrmvnp"]
+
+[ext_resource type="Texture2D" uid="uid://cum5khv3jtce1" path="res://assets/ground.png" id="1_eyw0t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_moqd7"]
+size = Vector2(1728, 165)
+
+[node name="Ground" type="Area2D"]
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_size = Vector2(1728, 0)
+repeat_times = 2
+ignore_camera_scroll = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(864, 684)
+texture = ExtResource("1_eyw0t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(864, 685.5)
+shape = SubResource("RectangleShape2D_moqd7")

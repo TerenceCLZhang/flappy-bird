@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://7xq4iy7i1meh"]
+
+[ext_resource type="Script" path="res://scripts/pipe.gd" id="1_yjv1i"]
+[ext_resource type="PackedScene" uid="uid://tkubc0gkpgs7" path="res://scenes/upper_pipe.tscn" id="2_7bedl"]
+[ext_resource type="PackedScene" uid="uid://xsv6cnjq4jpa" path="res://scenes/lower_pipe.tscn" id="3_j6whx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5tu0"]
+size = Vector2(20, 140)
+
+[node name="Pipes" type="Area2D"]
+script = ExtResource("1_yjv1i")
+
+[node name="UpperPipe" parent="." instance=ExtResource("2_7bedl")]
+
+[node name="PassedCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_i5tu0")
+
+[node name="LowerPipe" parent="." instance=ExtResource("3_j6whx")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

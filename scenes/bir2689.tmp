@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://decyvwxwemmar"]
+
+[ext_resource type="Texture2D" uid="uid://dfuofh4nwer0n" path="res://assets/bird1.png" id="1_f1f8b"]
+[ext_resource type="Script" path="res://scripts/bird.gd" id="1_fs14x"]
+[ext_resource type="Texture2D" uid="uid://533ubvnyvpxe" path="res://assets/bird2.png" id="2_rkum4"]
+[ext_resource type="Texture2D" uid="uid://cb3fw6j2c364v" path="res://assets/bird3.png" id="3_sp7vs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kdho8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_f1f8b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rkum4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sp7vs")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}]
+
+[node name="Bird" type="CharacterBody2D"]
+script = ExtResource("1_fs14x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kdho8")
+animation = &"fly"
+autoplay = "fly"
+frame = 2
+frame_progress = 0.440079
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

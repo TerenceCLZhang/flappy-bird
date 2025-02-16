@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://xsv6cnjq4jpa"]
+
+[ext_resource type="Script" path="res://scripts/lower_pipe.gd" id="1_q6tpc"]
+[ext_resource type="Texture2D" uid="uid://den4sx3n8oo4t" path="res://assets/pipe.png" id="1_r21yv"]
+
+[node name="LowerPipe" type="Area2D"]
+script = ExtResource("1_q6tpc")
+
+[node name="Lower" type="Sprite2D" parent="."]
+position = Vector2(0, 350)
+texture = ExtResource("1_r21yv")
+
+[node name="LowerCollision" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-39, 70, 39, 70, 39, 106, 36, 106, 36, 630, -36, 630, -36, 106, -39, 106)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

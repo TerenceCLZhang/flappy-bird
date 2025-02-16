@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://dp2t5jsfik87"]
+
+[ext_resource type="Texture2D" uid="uid://d38ceuoo614k4" path="res://assets/bg.png" id="1_v4t6i"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_ywka7"]
+[ext_resource type="PackedScene" uid="uid://rpben7jrmvnp" path="res://scenes/ground.tscn" id="2_cn7hx"]
+[ext_resource type="Script" path="res://scripts/score.gd" id="3_dmf12"]
+[ext_resource type="PackedScene" uid="uid://decyvwxwemmar" path="res://scenes/bird.tscn" id="3_ml3c6"]
+[ext_resource type="Script" path="res://scripts/ground.gd" id="4_xi5c1"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_ywka7")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 864.0
+offset_bottom = 768.0
+texture = ExtResource("1_v4t6i")
+
+[node name="Pipes" type="Node2D" parent="."]
+
+[node name="Timer" type="Timer" parent="Pipes"]
+wait_time = 2.0
+one_shot = true
+
+[node name="Score" type="Label" parent="."]
+offset_top = 50.0
+offset_right = 400.0
+offset_bottom = 165.0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 80
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_dmf12")
+
+[node name="Ground" parent="." instance=ExtResource("2_cn7hx")]
+script = ExtResource("4_xi5c1")
+
+[node name="Bird" parent="." instance=ExtResource("3_ml3c6")]
+position = Vector2(128, 338)
+
+[node name="EndGameFlash" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -17.0
+offset_top = -17.0
+offset_right = 415.0
+offset_bottom = 737.0
+
+[node name="Timer" type="Timer" parent="EndGameFlash"]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="restart_game" from="." to="Score" method="_on_game_restart_game"]
+[connection signal="restart_game" from="." to="Ground" method="_on_game_restart_game"]
+[connection signal="restart_game" from="." to="Bird" method="_on_game_restart_game"]
+[connection signal="timeout" from="Pipes/Timer" to="." method="_on_pipe_timer_timeout"]
+[connection signal="body_entered" from="Ground" to="Ground" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground" to="Bird" method="_on_ground_body_entered"]
+[connection signal="stop_game" from="Bird" to="." method="_on_bird_stop_game"]
+[connection signal="stop_game" from="Bird" to="Score" method="_on_bird_stop_game"]
+[connection signal="stop_game" from="Bird" to="Ground" method="_on_bird_stop_game"]
+[connection signal="timeout" from="EndGameFlash/Timer" to="." method="_on_game_over_timer_timeout"]
