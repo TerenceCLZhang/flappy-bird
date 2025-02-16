@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://decyvwxwemmar"]
+[gd_scene load_steps=8 format=3 uid="uid://decyvwxwemmar"]
 
 [ext_resource type="Texture2D" uid="uid://dfuofh4nwer0n" path="res://assets/bird1.png" id="1_f1f8b"]
 [ext_resource type="Script" path="res://scripts/bird.gd" id="1_fs14x"]
 [ext_resource type="Texture2D" uid="uid://533ubvnyvpxe" path="res://assets/bird2.png" id="2_rkum4"]
 [ext_resource type="Texture2D" uid="uid://cb3fw6j2c364v" path="res://assets/bird3.png" id="3_sp7vs"]
+[ext_resource type="AudioStream" uid="uid://cikrxsmlqec5f" path="res://assets/sounds/sfx_wing.wav" id="5_u51xt"]
+[ext_resource type="AudioStream" uid="uid://da8nr2wi2f2ee" path="res://assets/sounds/sfx_hit.wav" id="6_a5gn4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kdho8"]
 animations = [{
@@ -34,3 +36,11 @@ animation = &"fly"
 autoplay = "fly"
 frame = 2
 frame_progress = 0.440079
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Wind" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("5_u51xt")
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("6_a5gn4")

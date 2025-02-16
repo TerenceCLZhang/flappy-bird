@@ -33,6 +33,7 @@ func fly() -> void:
 	if Input.is_action_pressed("jump") and !game_over and position.y > -50:
 		if !game_started: game_started = true
 		velocity.y = -JUMP_FORCE
+		$Sounds/Wind.play()
 
 
 func get_bird_direction() -> void:
@@ -50,6 +51,7 @@ func end_game() -> void:
 	if !game_over:
 		game_over = true
 		$AnimatedSprite2D.stop()
+		$Sounds/Hit.play()
 		stop_game.emit()
 
 

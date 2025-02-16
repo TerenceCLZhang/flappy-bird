@@ -3,6 +3,7 @@ extends Label
 
 func increase_score() -> void:
 	text = str(int(text) + 1)
+	$Point.play()
 
 
 func _on_game_restart_game() -> void:

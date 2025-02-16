@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckjei3so2x6k6"]
+
+[ext_resource type="FontFile" uid="uid://b3tn6lisestmo" path="res://assets/font/flappy-font.ttf" id="1_bv7sq"]
+[ext_resource type="Script" path="res://scripts/score.gd" id="2_q7n37"]
+[ext_resource type="AudioStream" uid="uid://cw6aell42vipy" path="res://assets/sounds/sfx_point.wav" id="3_cq5kl"]
+
+[node name="Score" type="Label"]
+offset_top = 25.0
+offset_right = 400.0
+offset_bottom = 140.0
+size_flags_vertical = 0
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_bv7sq")
+theme_override_font_sizes/font_size = 80
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_q7n37")
+
+[node name="Point" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_cq5kl")

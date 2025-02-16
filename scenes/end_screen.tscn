@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://djl1ns8k83hf4"]
+[gd_scene load_steps=5 format=3 uid="uid://djl1ns8k83hf4"]
 
 [ext_resource type="Script" path="res://scripts/end_screen.gd" id="1_0aohr"]
 [ext_resource type="Texture2D" uid="uid://c57fej47adq38" path="res://assets/restart.png" id="2_ae2cj"]
 [ext_resource type="FontFile" uid="uid://b3tn6lisestmo" path="res://assets/font/flappy-font.ttf" id="2_fmj3u"]
+[ext_resource type="AudioStream" uid="uid://5xeq0dhp3ylo" path="res://assets/sounds/sfx_die.wav" id="4_7vqfo"]
 
 [node name="EndScreen" type="Control"]
 layout_mode = 3
@@ -106,5 +107,8 @@ horizontal_alignment = 1
 [node name="RestartButton" type="TextureButton" parent="MarginContainer/ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("2_ae2cj")
+
+[node name="Die" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_7vqfo")
 
 [connection signal="pressed" from="MarginContainer/ColorRect/MarginContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]

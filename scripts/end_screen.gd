@@ -10,6 +10,7 @@ func _ready() -> void:
 	var best_score = Global.save_data.best_score
 	score_val.text = current_game_score
 	best_val.text = str(best_score)
+	$Die.play()
 
 
 func get_current_game_score() -> String:
