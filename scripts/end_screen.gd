@@ -23,5 +23,4 @@ func get_current_game_score() -> String:
 
 
 func _on_restart_button_pressed() -> void:
-	game = get_parent()
-	game.restart()
+	get_tree().reload_current_scene()

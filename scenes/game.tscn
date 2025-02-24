@@ -40,8 +40,6 @@ offset_bottom = 737.0
 wait_time = 0.5
 one_shot = true
 
-[connection signal="restart_game" from="." to="Ground" method="_on_game_restart_game"]
-[connection signal="restart_game" from="." to="Bird" method="_on_game_restart_game"]
 [connection signal="timeout" from="Pipes/Timer" to="." method="_on_pipe_timer_timeout"]
 [connection signal="body_entered" from="Ground" to="Ground" method="_on_body_entered"]
 [connection signal="body_entered" from="Ground" to="Bird" method="_on_ground_body_entered"]

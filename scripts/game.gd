@@ -8,8 +8,6 @@ var game_started = false
 var game_over = false
 var tween: Tween
 
-signal restart_game
-
 
 func _process(delta: float) -> void:
 	if !game_started: check_game_start()
@@ -62,15 +60,3 @@ func show_end_pop_up() -> void:
 	var end_menu = END_MENU.instantiate()
 	end_menu.position = Vector2(end_menu.pivot_offset.x, end_menu.pivot_offset.y)
 	add_child(end_menu)
-
-
-func restart() -> void:
-	restart_game.emit()
-	for child in get_children():
-		if child.name == "Pipes":
-			for pipe in child.get_children():
-				if pipe is not Timer: pipe.queue_free()
-		elif child.name == "EndScreen":
-			child.queue_free()
-	game_started = false
-	game_over = false

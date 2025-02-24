@@ -14,7 +14,3 @@ func _on_bird_stop_game() -> void:
 
 func ground_moving() -> void:
 	$Parallax2D.autoscroll = AUTO_SCROLL_SPEED
-
-
-func _on_game_restart_game() -> void:
-	ground_moving()

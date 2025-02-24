@@ -53,13 +53,3 @@ func end_game() -> void:
 		$AnimatedSprite2D.stop()
 		$Sounds/Hit.play()
 		stop_game.emit()
-
-
-func _on_game_restart_game() -> void:
-	game_started = false
-	game_over = false
-	$AnimatedSprite2D.frame = 0
-	$AnimatedSprite2D.play()
-	position = Vector2(128, 338)
-	velocity.y = 0
-	rotation_degrees = 0
