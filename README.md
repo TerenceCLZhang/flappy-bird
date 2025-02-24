@@ -14,7 +14,7 @@ Flappy bird was a mobile game from 2013. It was a sleeper hit, gaining sudden an
 
 ## Stretch Goals
 
-- [ ] Add some sounds that will play each time the player gains a point, and when the player loses.
+- [x] Add some sounds that will play each time the player gains a point, and when the player loses.
 - [x] Add a basic game-over screen to display the player’s score.
 - [x] Track the high-score between play sessions and display the high score alongside the current score.
 - [x] Add some background art! Try layering the background and scrolling at a different rate to the foreground obstacles. This is called Parallax scrolling.
